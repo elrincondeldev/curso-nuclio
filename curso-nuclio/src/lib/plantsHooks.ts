@@ -38,7 +38,7 @@ export async function validateRequest() {
 }
 
 export async function callOpenAI(image: string) {
-  const prompt = `Analiza esta imagen de planta y proporciona una respuesta detallada en formato JSON con la siguiente estructura:
+  const prompt = `Analiza esta imagen de una planta y proporciona una respuesta detallada en formato JSON con la siguiente estructura:
     {
       "name": "Nombre común de la planta",
       "description": "Breve descripción de las características y apariencia de la planta",
@@ -87,7 +87,6 @@ export async function saveToDataBase(plant: PlantResponse, image: string) {
       createdAt: new Date(),
     };
 
-    console.log("Saving plant to database", result);
     const plantCollection = db.collection("plants");
     await plantCollection.insertOne(result);
 
